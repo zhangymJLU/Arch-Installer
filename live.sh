@@ -44,7 +44,7 @@ then fdisk -l
     read -p "Input the home mount point:  " HOME_l
     read -P "Format it ? (y or Enter  " TMP
     if [ "$TMP" == y ]
-    then mkswap $HOME_l
+    then mkfs.ext4 $HOME_l
     fi
     mkdir /mnt/home
     mount $HOME_l /mnt/home
@@ -55,7 +55,7 @@ then fdisk -l
     read -p "Input the home mount point:  " VAR
     read -P "Format it ? (y or Enter  " TMP
     if [ "$TMP" == y ]
-    then mkswap $VAR
+    then mkfs.ext4 $VAR
     fi
     mkdir /mnt/var
     mount $VAR /mnt/var
