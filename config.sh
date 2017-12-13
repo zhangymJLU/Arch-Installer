@@ -4,9 +4,14 @@ read -p "ENTER to continue "
 ##必要设置
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 hwclock --systohc --utc
-echo zh_CN.UTF-8 UTF-8 > /etc/locale.gen
+echo "en_US.UTF-8 UTF-8
+zh_CN.UTF-8 UTF-8
+zh_TW.UTF-8 UTF-8
+zh_CN.GB2312
+zh_CN.GBK
+zh_CN.GB18030" > /etc/locale.gen
 locale-gen
-echo LANG=zh_CN.UTF-8 > /etc/locale.conf
+echo LANG=en_US.UTF-8 > /etc/locale.conf
 read -p "Input your hostname:  " HOSTNAME
 echo $HOSTNAME  > /etc/hostname
 echo Change your root passwd
@@ -136,7 +141,7 @@ while [ "$TMP" == n ];do
             ;;
             8) pacman -S--noconfirm  budgie-desktop lightdm lightdm-gtk-greeter
             ;;
-            9) pacman -S --noconfirm cinnamon lightdm lightdm-gtk-greeter
+            9) pacman -S --noconfirm cinnamon lightdm lightdm-gtk-greeter system-config-printer gnome-keyring libsecret
             ;;
             10) pacman -S --noconfirm i3 rofi rxvt-unicode lightdm lightdm-gtk-greeter
             ;;
@@ -165,9 +170,21 @@ else gpasswd -a $USER lightdm
     systemctl enable lightdm
 fi
 
+echo "export LANG=zh_CN.UTF-8
+export LANGUAGE=zh_CN:en_US
+export LC_CTYPE=en_US.UTF-8" >> /home/$USER/.xprofile
+
 sed -i 's/\# \%wheel ALL=(ALL) ALL/\%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
 ##自定义
+read -p "install things which i think it useful" TMP
+if [ "$TMP" == y ]; then
+pacman -S --noconfirm gnome-terminal gnome-system-monitor gnome-screenshot gedit vlc gnome-mplayer wqy-microhei ttf-dejavu zsh vim tmux wps-office fcitx fcitx-im fcitx-cloudpinyin thermald i7z cpupower netease-cloud-music shadowsocks-qt5 vertex-themes numix-gtk-theme numix-circle-icon-theme git screenfetch docker docker-compose lightdm-gtk-greeter-settings archlinux-wallpaper thunderbird thunderbird-i18n-zh-cn evince
+echo "export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx" >> /home/$USER/.xprofile
+fi
+
 read -p "ENTER TO RUN YOUR OWN COMMAND(Input exit To Quit)"
 bash
 echo "Thanks For Using , If This Helped You Please Star It"
