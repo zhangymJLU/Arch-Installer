@@ -179,7 +179,7 @@ sed -i 's/\# \%wheel ALL=(ALL) ALL/\%wheel ALL=(ALL) ALL/g' /etc/sudoers
 ##自定义
 read -p "install things which i think it useful" TMP
 if [ "$TMP" == y ]; then
-pacman -S --noconfirm gnome-terminal gnome-system-monitor gnome-screenshot gedit vlc gnome-mplayer wqy-microhei ttf-dejavu zsh vim tmux wps-office fcitx fcitx-im fcitx-cloudpinyin thermald i7z cpupower netease-cloud-music shadowsocks-qt5 vertex-themes numix-gtk-theme numix-circle-icon-theme git screenfetch docker docker-compose lightdm-gtk-greeter-settings archlinux-wallpaper thunderbird thunderbird-i18n-zh-cn evince
+pacman -S --noconfirm gnome-terminal gnome-system-monitor gnome-screenshot gedit vlc gnome-mplayer wqy-microhei ttf-dejavu zsh vim tmux wps-office fcitx fcitx-im fcitx-cloudpinyin thermald i7z cpupower netease-cloud-music shadowsocks-qt5 vertex-themes numix-gtk-theme numix-circle-icon-theme git screenfetch docker docker-compose lightdm-gtk-greeter-settings archlinux-wallpaper thunderbird thunderbird-i18n-zh-cn evince ego electronic-wechat
 echo "export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx" >> /home/$USER/.xprofile
