@@ -179,11 +179,14 @@ sed -i 's/\# \%wheel ALL=(ALL) ALL/\%wheel ALL=(ALL) ALL/g' /etc/sudoers
 ##自定义
 read -p "install things which i think it useful" TMP
 if [ "$TMP" == y ]; then
-pacman -S --noconfirm gnome-terminal gnome-system-monitor gnome-screenshot gedit vlc gnome-mplayer wqy-microhei ttf-dejavu zsh vim tmux wps-office fcitx fcitx-im fcitx-cloudpinyin thermald i7z cpupower netease-cloud-music shadowsocks-qt5 vertex-themes numix-gtk-theme numix-circle-icon-theme git screenfetch docker docker-compose lightdm-gtk-greeter-settings archlinux-wallpaper thunderbird thunderbird-i18n-zh-cn evince eog electronic-wechat
+pacman -S --noconfirm aria2 gnome-terminal gnome-system-monitor gnome-screenshot gedit vlc gnome-mplayer wqy-microhei ttf-dejavu zsh vim tmux wps-office fcitx fcitx-im fcitx-cloudpinyin thermald i7z cpupower netease-cloud-music shadowsocks-qt5 vertex-themes numix-gtk-theme numix-circle-icon-theme git screenfetch docker docker-compose lightdm-gtk-greeter-settings archlinux-wallpaper thunderbird thunderbird-i18n-zh-cn evince eog electronic-wechat
+pacman -S ttf-roboto noto-fonts noto-fonts-cjk adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts ttf-dejavu
+#yaourt -Sy ttf-ms-fonts
+
 echo "export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx" >> /home/$USER/.xprofile
-yaourt -Sy iso-flag-png macos-arc-white-theme mint-cinnamon-themes mint-sounds mint-x-icons mintlocate vimix-gtk-themes-git vimix-icon-theme
+yaourt -Sy iso-flag-png macos-arc-white-theme mint-cinnamon-themes mint-sounds mint-x-icons mintlocate vimix-gtk-themes-git vimix-icon-theme networkmanager-l2tp networkmanager-openconnect networkmanager-pptp networkmanager-openvpn
 fi
 
 read -p "ENTER TO RUN YOUR OWN COMMAND(Input exit To Quit)"
