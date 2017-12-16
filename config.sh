@@ -98,7 +98,7 @@ Server = http://mirrors.163.com/archlinux-cn/\$arch" >> /etc/pacman.conf
 TMP=n
 while [ "$TMP" == n ]
 do
-    pacman -Syu&&pacman -S --noconfirm archlinuxcn-keyring&&pacman -S --noconfirm networkmanager xorg-server firefox yaourt wqy-zenhei sudo
+    pacman -Syu&&pacman -S --noconfirm archlinuxcn-keyring&&pacman -S --noconfirm networkmanager net-tools xorg-server firefox yaourt wqy-zenhei sudo
     systemctl enable NetworkManager
     read -p "Do you have bluetooth ? (y or Enter  " TMP
     if [ "$TMP" == y ]
@@ -179,7 +179,7 @@ sed -i 's/\# \%wheel ALL=(ALL) ALL/\%wheel ALL=(ALL) ALL/g' /etc/sudoers
 ##自定义
 read -p "install things which i think it useful" TMP
 if [ "$TMP" == y ]; then
-pacman -S --noconfirm aria2 gnome-terminal gnome-system-monitor gnome-screenshot gedit vlc gnome-mplayer wqy-microhei ttf-dejavu zsh vim tmux wps-office fcitx fcitx-im fcitx-cloudpinyin fcitx-googlepinyin fcitx-configtool thermald i7z cpupower netease-cloud-music shadowsocks-qt5 vertex-themes numix-gtk-theme numix-circle-icon-theme git screenfetch docker docker-compose lightdm-gtk-greeter-settings archlinux-wallpaper thunderbird thunderbird-i18n-zh-cn evince eog electronic-wechat
+pacman -S --noconfirm aria2 gnome-terminal gnome-system-monitor gnome-screenshot google-chrome gedit vlc gnome-mplayer wqy-microhei ttf-dejavu zsh vim tmux wps-office fcitx fcitx-im fcitx-cloudpinyin fcitx-googlepinyin fcitx-configtool thermald i7z cpupower netease-cloud-music shadowsocks-qt5 vertex-themes numix-gtk-theme numix-circle-icon-theme git screenfetch docker docker-compose lightdm-gtk-greeter-settings archlinux-wallpaper thunderbird thunderbird-i18n-zh-cn evince eog electronic-wechat
 pacman -S --noconfirm ttf-roboto noto-fonts noto-fonts-cjk adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts ttf-dejavu
 #yaourt -Sy ttf-ms-fonts
 
